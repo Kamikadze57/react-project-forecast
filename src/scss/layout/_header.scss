@@ -1,0 +1,50 @@
+@use "../utils/vars";
+
+header {
+  font-family: "Montserrat Alternates";
+  padding: 12px 0;
+  border-bottom: 1px solid vars.$placeholder-color;
+}
+.header__container {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  max-width: 82px;
+  max-height: 56px;
+}
+.header__nav {
+  margin-left: 10%;
+}
+.header-nav__list {
+  display: flex;
+  gap: 45px;
+}
+.header-nav__link {
+  font-size: 12px;
+  font-weight: 500;
+  transition: color vars.$normal;
+  &:hover,
+  &:focus {
+    color: vars.$accent-color;
+  }
+}
+.header__btn {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: vars.$accent-color;
+  transition: background vars.$normal;
+  margin-left: auto;
+  &:hover,
+  &:focus {
+    background-color: vars.$accent-darker;
+  }
+}
+.header-user__svg {
+  max-width: 50px;
+  max-height: 50px;
+  margin-left: 30px;
+}

@@ -1,0 +1,28 @@
+@use "../utils/vars";
+
+footer {
+  font-family: "Montserrat Alternates";
+  padding: 35px 0 60px;
+  background-color: vars.$accent-color;
+}
+.footer__container {
+  display: flex;
+  gap: 10%;
+}
+.footer__title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.footer__address {
+  font-size: 12px;
+  font-weight: 500;
+}
+.footer-contact__list {
+  display: flex;
+  gap: 20px;
+}
+.footer-contact__svg {
+  width: 40px;
+  height: 40px;
+}
