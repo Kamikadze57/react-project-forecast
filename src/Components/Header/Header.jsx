@@ -1,6 +1,21 @@
+import { useState, useEffect } from "react";
 import Modal from "./Modal/Modal";
 
 const Header = ({ baseUrl }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    const savedName = localStorage.getItem("userName");
+    if (savedName) {
+      setUsername(savedName);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("userName");
+    setUsername("");
+  };
   return (
     <>
       <header>
@@ -29,12 +44,28 @@ const Header = ({ baseUrl }) => {
               </li>
             </ul>
           </nav>
-          <button className="header__btn">Sign Up</button>
+          {username ? (
+            <button className="header__btn button" onClick={handleLogout}>
+              Hi, {username} (Exit)
+            </button>
+          ) : (
+            <button className="header__btn button" onClick={() => setIsModalOpen(true)}>
+              Sign Up
+            </button>
+          )}
           <svg className="header-user__svg">
             <use href={`${baseUrl}/icons.svg#user`}></use>
           </svg>
         </div>
-        <Modal/>
+        {isModalOpen && (
+          <Modal 
+            onClose={() => setIsModalOpen(false)} 
+            onSuccess={(name) => {
+              setUsername(name);
+              setIsModalOpen(false);
+            }} 
+          />
+        )}
       </header>
     </>
   );

@@ -1,0 +1,12 @@
+@use "../utils/vars";
+
+.button {
+  border: none;
+  border-radius: 10px;
+  background-color: vars.$accent-color;
+  transition: background vars.$normal;
+    &:hover,
+  &:focus {
+    background-color: vars.$accent-darker;
+  }
+}

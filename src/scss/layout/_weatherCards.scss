@@ -1,0 +1,91 @@
+@use "../utils/vars";
+
+.weather-cards {
+  padding: 80px 0;
+}
+.weather-cards__list {
+  display: flex;
+  justify-content: space-between;
+}
+.weather-cards__item {
+  padding: 15px 20px 20px;
+  background-color: vars.$bg-accent;
+  border-radius: 20px;
+
+  //   Временно для 1400px+
+  width: 25%;
+}
+.cards-header__box {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+.cards__text {
+  font-size: 14px;
+  font-weight: 500;
+}
+.cards-body__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cards__time {
+  font-size: 24px;
+  margin: 15px 0 10px;
+}
+.cards-hourly-forecast__btn {
+  padding: 8px 18px;
+  font-size: 10px;
+  font-weight: 500;
+}
+.cards-time__box {
+  display: flex;
+  margin: 15px 0 20px;
+  :first-child {
+    padding-right: 13px;
+    border-right: 1px solid #000;
+  }
+  :last-child {
+    padding-left: 13px;
+    border-left: 1 px solid #000;
+  }
+}
+.cards-weather__img {
+  max-width: 150px;
+  max-height: 150px;
+  transform: scale(1.5);
+  margin: -20px 0;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+.cards__temperature {
+  font-size: 32px;
+  margin: 15px 0 40px;
+}
+.cards-footer__box {
+  display: flex;
+  gap: 15px;
+}
+.cards-svg__btn {
+  display: flex;
+  padding: 5px;
+  border: none;
+  background-color: transparent;
+  border-radius: 50%;
+  transition: background vars.$normal;
+  &:hover,
+  &:focus {
+    background-color: vars.$accent-color;
+  }
+  .cards__svg {
+    max-width: 25px;
+    max-height: 25px;
+  }
+}
+.cards__btn {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 8px 25px;
+  margin: 0 auto;
+}

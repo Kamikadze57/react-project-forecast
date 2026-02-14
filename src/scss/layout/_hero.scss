@@ -15,14 +15,13 @@
 }
 .hero__box {
   display: flex;
-  //   gap: 52px;
   justify-content: center;
 }
 .hero__subtitle {
   font-size: 24px;
   font-weight: 500;
   color: vars.$text-secondary;
-  width: 50%;
+  width: 30%;
   padding-bottom: 50px;
   &:first-child {
     text-align: end;
@@ -37,42 +36,82 @@
     color: vars.$text-secondary;
   }
 }
+.hero-search__box {
+  position: relative;
+  width: 45%;
+  margin: 0 auto;
+}
 .hero-search__form {
   margin-top: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 .hero-search__input {
+  flex-grow: 1;
   padding: 12px 30px;
-  background-color: #d9d9d9;
   outline: none;
-  border: none;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  color: vars.$placeholder-color;
+  border-radius: 10px 0 0 10px;
   width: 35%;
-  &::placeholder {
-    font-size: 14px;
-    color: vars.$placeholder-color;
+  &.suggested {
+    border-bottom-left-radius: 0;
   }
 }
 .hero-search__btn {
-  border: none;
+  border-radius: 0;
   border-left: 2px solid #000;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-radius: 0 10px 10px 0;
   padding: 7px 10px;
   height: -webkit-fill-available;
   display: flex;
   align-items: center;
-  background-color: vars.$accent-color;
-  transition: background vars.$normal;
-  &:hover, &:focus {
-    background-color: vars.$accent-darker;
+  &.suggested {
+    border-bottom-right-radius: 0;
   }
 }
 .hero-search__svg {
   max-width: 25px;
   max-height: 25px;
+}
+.hero-search__dropdown {
+  overflow: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border-radius: 0 0 20px 20px;
+  border-top: 1px solid vars.$placeholder-color;
+  background: linear-gradient(180deg, rgba(217, 217, 217, 1) 0%, rgba(189, 189, 189, 1) 50%, rgba(145, 145, 145, 1) 100%);
+  z-index: 1;
+}
+.hero-search-error__text {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 14px;
+}
+.hero-suggestions__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    .hero-suggestions__btn {
+      opacity: 1;
+    }
+  }
+}
+.hero-suggestions__btn {
+  cursor: pointer;
+  opacity: 0.6;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  .hero-suggestions__svg {
+    width: 18px;
+    height: 18px;
+  }
 }

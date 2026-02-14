@@ -7,6 +7,7 @@
   text-decoration: none;
   font-style: normal;
   color: vars.$text-primary;
+  box-sizing: border-box;
 }
 body {
   font-family: "Montserrat";
@@ -21,8 +22,8 @@ img {
   height: auto;
 }
 svg {
-  max-width: 100px;
-  max-height: 100px;
+  max-width: 50px;
+  max-height: 50px;
 }
 main {
   flex-grow: 1;

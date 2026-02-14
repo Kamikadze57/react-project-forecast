@@ -1,8 +1,12 @@
 @use "./base/common";
 @use "./base/container";
 
+@use "./components/input";
+@use "./components/buttons";
+
 @use "./layout/header";
 @use "./layout/hero";
 @use "./layout/modal";
+@use './layout/weatherCards';
 @use "./layout/footer";
 
