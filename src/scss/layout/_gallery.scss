@@ -1,0 +1,17 @@
+.gallery {
+  padding: 40px 0 55px;
+}
+.gallery-swiper {
+  width: 50%; /* Ширина однієї картки */
+  height: 380px; /* Висота однієї картки */
+  margin: 0 auto;
+}
+.swiper-slide {
+  border-radius: 10px;
+  overflow: hidden;
+}
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

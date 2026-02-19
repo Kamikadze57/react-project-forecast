@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Header from "./Components/Header/Header";
 import Hero from "./Components/Hero/Hero";
+import News from "./Components/News/News";
+import Gallery from "./Components/Gallery/Gallery";
 import Footer from "./Components/Footer/Footer";
 import WeatherCards from "./Components/WeatherCards/WeatherCards";
+
+import DetailsPage from "./pages/DetailsPage/DetailsPage";
 
 function App() {
   const baseUrl = import.meta.env.BASE_URL;
@@ -98,10 +103,40 @@ function App() {
 
   return (
     <>
-      <Header baseUrl={baseUrl} />
-      <Hero baseUrl={baseUrl} onCityFound={addNewCity} />
-      <WeatherCards baseUrl={baseUrl} cities={cities} onDelete={deleteCity} onRefresh={refreshCity} />
-      <Footer baseUrl={baseUrl} />
+      <BrowserRouter basename="/react-project-forecast">
+        <Header baseUrl={baseUrl} />
+        <main>
+          <Routes>
+            {/* Головна сторінка */}
+            <Route
+              path="/"
+              element={
+                <>
+                  <Hero baseUrl={baseUrl} onCityFound={addNewCity} />
+                  <WeatherCards baseUrl={baseUrl} cities={cities} onDelete={deleteCity} onRefresh={refreshCity} />
+                  <News />
+                  <Gallery />
+                </>
+              }
+            />
+
+            {/* Сторінка з подробним прогнозом */}
+            <Route
+              path="/details/:cityName"
+              element={
+                <>
+                  <Hero baseUrl={baseUrl} onCityFound={addNewCity}/>
+                  <WeatherCards baseUrl={baseUrl} cities={cities} onDelete={deleteCity} onRefresh={refreshCity} />
+                  <DetailsPage />
+                  <News />
+                  <Gallery />
+                </>
+              }
+            />
+          </Routes>
+        </main>
+        <Footer baseUrl={baseUrl} />
+      </BrowserRouter>
     </>
   );
 }

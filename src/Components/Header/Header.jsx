@@ -20,7 +20,7 @@ const Header = ({ baseUrl }) => {
     <>
       <header>
         <div className="container header__container">
-          <a className="logo__link">
+          <a className="logo__link" href="/">
             <svg className="logo">
               <use href={`${baseUrl}/icons.svg#logo`}></use>
             </svg>
@@ -58,12 +58,12 @@ const Header = ({ baseUrl }) => {
           </svg>
         </div>
         {isModalOpen && (
-          <Modal 
-            onClose={() => setIsModalOpen(false)} 
+          <Modal
+            onClose={() => setIsModalOpen(false)}
             onSuccess={(name) => {
               setUsername(name);
               setIsModalOpen(false);
-            }} 
+            }}
           />
         )}
       </header>

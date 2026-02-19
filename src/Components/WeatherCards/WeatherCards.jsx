@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 const WeatherCards = ({ baseUrl, cities, onDelete, onRefresh }) => {
   const formatDate = () => {
     const date = new Date();
@@ -9,6 +11,12 @@ const WeatherCards = ({ baseUrl, cities, onDelete, onRefresh }) => {
   };
   console.log(cities);
   const { weekday, today } = formatDate();
+
+  const navigate = useNavigate();
+
+  const handleDetails = (cityName) => {
+    navigate(`/details/${cityName}`);
+  };
 
   return (
     <section className="weather-cards">
@@ -49,7 +57,9 @@ const WeatherCards = ({ baseUrl, cities, onDelete, onRefresh }) => {
                     <use href={`${baseUrl}/icons.svg#save`}></use>
                   </svg>
                 </button>
-                <button className="cards__btn button">See more</button>
+                <button className="cards__btn button" onClick={() => handleDetails(city.name)}>
+                  See more
+                </button>
                 <button className="cards-svg__btn" onClick={() => onDelete(city.id)}>
                   <svg className="cards__svg">
                     <use href={`${baseUrl}/icons.svg#delete`}></use>

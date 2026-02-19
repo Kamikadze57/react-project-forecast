@@ -1,0 +1,7 @@
+@use './layout/weatherStats';
+@use './layout/weatherChart';
+@use './layout/weeklyForecast';
+
+.details-loading__text {
+    text-align: center;
+}

@@ -1,0 +1,15 @@
+@use "../../../utils/vars";
+
+.weather-chart {
+  padding: 25px 0 40px;
+  background-color: vars.$bg-accent;
+  border-radius: 20px;
+  margin: 80px 0;
+  max-height: 550px;
+}
+.chart__title {
+  font-size: 16px;
+  margin-left: 5%;
+  font-weight: 600;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,44 @@
+@use "../../../utils/vars";
+
+.weekly-forecast {
+  padding: 25px 5% 40px;
+  background-color: vars.$bg-accent;
+  border-radius: 20px;
+  margin-bottom: 40px;
+}
+.weekly__title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.weekly__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.weekly__item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5%;
+  align-items: center;
+  background-color: #d9d9d9;
+  border-radius: 10px;
+}
+.weekly__day,
+.weekly__desc {
+  font-size: 16px;
+  font-weight: 500;
+  width: 20%;
+}
+.weekly__desc {
+  text-align: right;
+}
+.weekly-item__box {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.weekly__icon {
+  max-width: 45px;
+  max-height: 45px;
+}

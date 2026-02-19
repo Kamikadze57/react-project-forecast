@@ -3,10 +3,15 @@
 
 @use "./components/input";
 @use "./components/buttons";
+@use "./components/title";
 
 @use "./layout/header";
 @use "./layout/hero";
 @use "./layout/modal";
-@use './layout/weatherCards';
+@use "./layout/weatherCards";
+@use "./layout/news";
+@use "./layout/gallery";
 @use "./layout/footer";
 
+// Pages
+@use "./pages/DetailsPage/detailsPage";

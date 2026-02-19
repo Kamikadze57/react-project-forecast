@@ -1,0 +1,26 @@
+@use "../utils/vars";
+
+.news {
+  padding: 40px 0;
+}
+.news__list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 40px;
+}
+.news__img {
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+.news__text {
+  font-size: 16px;
+  font-weight: 500;
+}
+.news__btn {
+  margin: 40px auto 0;
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 30px;
+}
