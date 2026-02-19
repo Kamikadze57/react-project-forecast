@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Modal from "./Modal/Modal";
 
 const Header = ({ baseUrl }) => {
@@ -20,11 +21,11 @@ const Header = ({ baseUrl }) => {
     <>
       <header>
         <div className="container header__container">
-          <a className="logo__link" href="/">
+          <Link className="logo__link" to="/">
             <svg className="logo">
               <use href={`${baseUrl}/icons.svg#logo`}></use>
             </svg>
-          </a>
+          </Link>
           <nav className="header__nav">
             <ul className="header-nav__list">
               <li className="header-nav__item">
