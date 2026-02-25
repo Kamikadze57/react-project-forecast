@@ -2,27 +2,67 @@
 
 footer {
   font-family: "Montserrat Alternates";
-  padding: 35px 0 60px;
+  padding: 30px 0;
   background-color: vars.$accent-color;
+  @media screen and (min-width: 768px) {
+    padding: 35px 0 35px;
+  }
+  @media screen and (min-width: 1340px) {
+    padding: 35px 0 65px;
+  }
 }
 .footer__container {
   display: flex;
-  gap: 10%;
+  gap: 25%;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  @media screen and (min-width: 768px) {
+    gap: 10%;
+    flex-wrap: nowrap;
+    justify-content: start;
+    align-items: start;
+  }
 }
 .footer__title {
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 10px;
-}
-.footer__address {
   font-size: 12px;
   font-weight: 500;
+  margin-bottom: 15px;
+  &.footer-contact__title {
+    text-align: center;
+    margin-top: 25px;
+    @media screen and (min-width: 768px) {
+      text-align: start;
+      margin-top: 0;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
+  @media screen and (min-width: 1340px) {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+}
+.footer__address {
+  font-size: 8px;
+  font-weight: 500;
+  @media screen and (min-width: 768px) {
+    font-size: 10px;
+  }
+  @media screen and (min-width: 1340px) {
+    font-size: 14px;
+  }
 }
 .footer-contact__list {
   display: flex;
   gap: 20px;
 }
 .footer-contact__svg {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
+  @media screen and (min-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
 }

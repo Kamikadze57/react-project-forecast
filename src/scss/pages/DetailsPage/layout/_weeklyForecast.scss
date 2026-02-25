@@ -1,20 +1,41 @@
 @use "../../../utils/vars";
 
 .weekly-forecast {
-  padding: 25px 5% 40px;
-  background-color: vars.$bg-accent;
+  padding: 20px 25px 35px;
+  margin-bottom: 10px;
   border-radius: 20px;
-  margin-bottom: 40px;
+  background-color: vars.$bg-accent;
+  @media screen and (min-width: 768px) {
+    padding: 20px 35px 35px;
+    margin-bottom: 30px;
+  }
+  @media screen and (min-width: 1340px) {
+    padding: 25px 5% 40px;
+    margin-bottom: 40px;
+  }
 }
 .weekly__title {
-  font-size: 16px;
+  font-size: 10px;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  @media screen and (min-width: 768px) {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+  @media screen and (min-width: 1340px) {
+    font-size: 16px;
+  }
 }
 .weekly__list {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  @media screen and (min-width: 768px) {
+    gap: 15px;
+  }
+  @media screen and (min-width: 1340px) {
+    gap: 10px;
+  }
 }
 .weekly__item {
   display: flex;
@@ -23,22 +44,39 @@
   align-items: center;
   background-color: #d9d9d9;
   border-radius: 10px;
+  transition: transform vars.$normal;
+  &:hover {
+    transform: translateY(-5px);
+  }
 }
 .weekly__day,
 .weekly__desc {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 500;
   width: 20%;
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
+  @media screen and (min-width: 1340px) {
+    font-size: 16px;
+  }
 }
 .weekly__desc {
   text-align: right;
 }
 .weekly-item__box {
   display: flex;
-  gap: 10px;
+  gap: 5px;
   align-items: center;
+  @media screen and (min-width: 768px) {
+    gap: 10px;
+  }
 }
 .weekly__icon {
-  max-width: 45px;
-  max-height: 45px;
+  max-width: 30px;
+  max-height: 30px;
+  @media screen and (min-width: 768px) {
+    max-width: 45px;
+    max-height: 45px;
+  }
 }

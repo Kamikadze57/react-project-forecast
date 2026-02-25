@@ -9,24 +9,38 @@
   justify-content: center;
   background-color: rgba($color: #000000, $alpha: 0.5);
   opacity: 1;
-  transition: opacity 250ms linear;
 }
 .modal__backdrop.hidden {
   opacity: 0;
   pointer-events: none;
 }
 .modal__body {
-  min-width: 30%;
+  min-width: 60%;
   position: relative;
   border-radius: 25px;
-  padding: 28px 80px;
   background-color: vars.$bg-primary;
+  padding: 25px;
+  @media screen and (min-width: 768px) {
+    min-width: 40%;
+    padding: 30px 45px;
+  }
+  @media screen and (min-width: 1340px) {
+    min-width: 30%;
+    padding: 30px 80px;
+  }
 }
 .modal__title {
-  font-size: 28px;
+  font-size: 20px;
+  margin-bottom: 30px;
   font-weight: 500;
   text-align: center;
-  margin-bottom: 40px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+  }
+  @media screen and (min-width: 1340px) {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
 }
 .modal-close__btn {
   display: flex;
@@ -48,28 +62,55 @@
 .modal-form__label {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 25px;
+  @media screen and (min-width: 1340px) {
+    gap: 30px;
+  }
 }
 .modal-form__label {
   gap: 15px;
 }
 .modal-form__text {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
+
+  @media screen and (min-width: 1340px) {
+    font-size: 14px;
+  }
 }
 .modal-form__input {
-  padding: 18px 20px;
+  padding: 12px 20px;
+  @media screen and (min-width: 1340px) {
+    padding: 18px 20px;
+  }
+  &::placeholder {
+    font-size: 12px;
+    @media screen and (min-width: 1340px) {
+      font-size: 14px;
+    }
+  }
 }
 .modal-form__btn {
-  font-size: 14px;
+  font-size: 12px;
   padding: 10px 30px;
   display: block;
-  margin: 35px auto 15px;
+  margin: 30px auto 15px;
+  @media screen and (min-width: 768px) {
+    margin: 25px auto 15px;
+  }
+  @media screen and (min-width: 1340px) {
+    font-size: 14px;
+    padding: 10px 30px;
+    margin: 35px auto 15px;
+  }
 }
 .modal__text {
-  font-size: 10px;
+  font-size: 8px;
   font-weight: 500;
   text-align: center;
+  @media screen and (min-width: 1340px) {
+    font-size: 10px;
+  }
 }
 .modal__link {
   text-decoration: underline;

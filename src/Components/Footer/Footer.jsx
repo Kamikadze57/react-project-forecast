@@ -15,7 +15,7 @@ const Footer = ({ baseUrl }) => {
             <address className="footer__address">Ukraine</address>
           </div>
           <div className="footer-contact__box">
-            <h6 className="footer__title">Contact Us</h6>
+            <h6 className="footer__title footer-contact__title">Contact Us</h6>
             <ul className="footer-contact__list">
               <li className="footer-contact__item">
                 <a className="footer-contact__link">

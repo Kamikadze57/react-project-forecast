@@ -5,6 +5,7 @@ import Modal from "./Modal/Modal";
 const Header = ({ baseUrl }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [username, setUsername] = useState("");
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   useEffect(() => {
     const savedName = localStorage.getItem("userName");
@@ -17,6 +18,16 @@ const Header = ({ baseUrl }) => {
     localStorage.removeItem("userName");
     setUsername("");
   };
+  useEffect(() => {
+    if (isMobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isMobileOpen]);
   return (
     <>
       <header>
@@ -57,6 +68,9 @@ const Header = ({ baseUrl }) => {
           <svg className="header-user__svg">
             <use href={`${baseUrl}/icons.svg#user`}></use>
           </svg>
+          <button className="header-mobile__btn" onClick={() => setIsMobileOpen(!isMobileOpen)}>
+            {isMobileOpen ? "Close ˃" : "Menu ˅"}
+          </button>
         </div>
         {isModalOpen && (
           <Modal
@@ -68,6 +82,44 @@ const Header = ({ baseUrl }) => {
           />
         )}
       </header>
+      {isMobileOpen && (
+        <div className="mobile__backdrop" onClick={() => setIsMobileOpen(false)}></div>
+      )}
+      <div className={`header-mobile__box ${isMobileOpen ? "" : "hidden"}`}>
+        <nav className="header-mobile__nav">
+          <ul className="header-mobile-nav__list">
+            <li className="header-nav__item">
+              <a href="#" className="header-nav__link">
+                Who we are
+              </a>
+            </li>
+            <li className="header-nav__item">
+              <a href="#" className="header-nav__link">
+                Contacts
+              </a>
+            </li>
+            <li className="header-nav__item">
+              <a href="#" className="header-nav__link">
+                Menu
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div className="header-mobile-right__box">
+          <svg className="header-user__svg">
+            <use href={`${baseUrl}/icons.svg#user`}></use>
+          </svg>
+          {username ? (
+            <button className="header__btn button" onClick={handleLogout}>
+              Hi, {username} (Exit)
+            </button>
+          ) : (
+            <button className="header__btn button" onClick={() => setIsModalOpen(true)}>
+              Sign Up
+            </button>
+          )}
+        </div>
+      </div>
     </>
   );
 };

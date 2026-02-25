@@ -1,19 +1,35 @@
 @use "../utils/vars";
 
 .weather-cards {
-  padding: 60px 0 40px;
+  padding: 35px 0;
+  @media screen and (min-width: 768px) {
+    padding: 50px 0;
+  }
+  @media screen and (min-width: 1340px) {
+    padding: 60px 0 40px;
+  }
 }
 .weather-cards__list {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+  gap: 35px;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 10px;
+  }
 }
 .weather-cards__item {
-  padding: 15px 20px 20px;
+  padding: 15px 15px 20px;
   background-color: vars.$bg-accent;
   border-radius: 20px;
-
-  //   Временно для 1400px+
-  width: 25%;
+  @media screen and (min-width: 768px) {
+    padding: 15px 15px 20px;
+  }
+  @media screen and (min-width: 1340px) {
+    width: 25%;
+    padding: 15px 20px 20px;
+  }
 }
 .cards-header__box {
   display: flex;
@@ -21,8 +37,11 @@
   padding: 0 5px;
 }
 .cards__text {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
+  @media screen and (min-width: 1340px) {
+    font-size: 14px;
+  }
 }
 .cards-body__box {
   display: flex;
@@ -30,17 +49,28 @@
   align-items: center;
 }
 .cards__time {
-  font-size: 24px;
-  margin: 15px 0 10px;
+  font-size: 20px;
+  margin: 25px 0 10px;
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+  @media screen and (min-width: 1340px) {
+    font-size: 24px;
+    margin: 15px 0 10px;
+  }
 }
 .cards-hourly-forecast__btn {
-  padding: 8px 18px;
   font-size: 10px;
   font-weight: 500;
+  padding: 7px 14px;
+  @media screen and (min-width: 1340px) {
+    padding: 8px 18px;
+  }
 }
 .cards-time__box {
   display: flex;
-  margin: 15px 0 20px;
+  margin: 12px 0 25px;
   :first-child {
     padding-right: 13px;
     border-right: 1px solid #000;
@@ -49,19 +79,37 @@
     padding-left: 13px;
     border-left: 1 px solid #000;
   }
+  @media screen and (min-width: 1340px) {
+    margin: 15px 0 20px;
+  }
 }
 .cards-weather__img {
-  max-width: 150px;
-  max-height: 150px;
+  max-width: 100px;
+  max-height: 100px;
   transform: scale(1.5);
   margin: -20px 0;
   object-fit: contain;
   pointer-events: none;
   user-select: none;
+  @media screen and (min-width: 768px) {
+    max-width: 90px;
+    max-height: 90px;
+  }
+  @media screen and (min-width: 1340px) {
+    max-width: 150px;
+    max-height: 150px;
+  }
 }
 .cards__temperature {
+  font-size: 24px;
+  margin: 25px 0 40px;
+    @media screen and (min-width: 768px) {
+  margin: 25px 0 35px;
+  }
+  @media screen and (min-width: 1340px) {
   font-size: 32px;
-  margin: 15px 0 40px;
+  margin: 15px 0 40px;  
+  }
 }
 .cards-footer__box {
   display: flex;
@@ -86,6 +134,12 @@
 .cards__btn {
   font-size: 10px;
   font-weight: 500;
-  padding: 8px 25px;
+  padding: 8px 20px;
   margin: 0 auto;
+      @media screen and (min-width: 768px) {
+  padding: 6px 20px;
+  }
+  @media screen and (min-width: 1340px) {
+  padding: 8px 25px;
+  }
 }
