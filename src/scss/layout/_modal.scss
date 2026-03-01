@@ -80,13 +80,22 @@
 }
 .modal-form__input {
   padding: 12px 20px;
+  border: 1px solid #d9d9d9;
   @media screen and (min-width: 1340px) {
     padding: 18px 20px;
   }
   &::placeholder {
     font-size: 12px;
+    transition: color vars.$normal;
     @media screen and (min-width: 1340px) {
       font-size: 14px;
+    }
+  }
+  transition: border-color vars.$normal;
+  &.input--error {
+    border-color: #ff4c4c;
+    &::placeholder {
+      color: #ff4c4c;
     }
   }
 }

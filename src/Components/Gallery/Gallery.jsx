@@ -28,7 +28,7 @@ const Gallery = () => {
   }, [API_KEY]);
 
   return (
-    <section className="gallery">
+    <section className="gallery" id="Gallery">
       <div className="container">
         <h2 className="gallery__title title">Beautiful nature</h2>
         <div className="gallery__slider-container">

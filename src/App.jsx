@@ -15,6 +15,7 @@ function App() {
   const baseUrl = import.meta.env.BASE_URL;
   const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
 
+  const [isVisible, setIsVisible] = useState(false);
   const [cities, setCities] = useState([]);
 
   // Запит до API
@@ -101,6 +102,26 @@ function App() {
     }
   };
 
+  // Прокрутка вверх
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.scrollY > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <>
       <BrowserRouter basename="/react-project-forecast">
@@ -125,7 +146,7 @@ function App() {
               path="/details/:cityName"
               element={
                 <>
-                  <Hero baseUrl={baseUrl} onCityFound={addNewCity}/>
+                  <Hero baseUrl={baseUrl} onCityFound={addNewCity} />
                   <WeatherCards baseUrl={baseUrl} cities={cities} onDelete={deleteCity} onRefresh={refreshCity} />
                   <DetailsPage />
                   <News />
@@ -135,6 +156,11 @@ function App() {
             />
           </Routes>
         </main>
+        {isVisible && (
+          <button className="scroll-to-top__btn button" onClick={scrollToTop}>
+            ↑
+          </button>
+        )}
         <Footer baseUrl={baseUrl} />
       </BrowserRouter>
     </>

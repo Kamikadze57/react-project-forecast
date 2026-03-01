@@ -19,7 +19,7 @@ const WeatherCards = ({ baseUrl, cities, onDelete, onRefresh }) => {
   };
 
   return (
-    <section className="weather-cards">
+    <section className="weather-cards" id="weather-cards">
       <div className="container">
         <ul className="weather-cards__list">
           {cities.map((city) => (

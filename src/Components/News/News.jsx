@@ -28,7 +28,7 @@ const News = () => {
   const handleSeeMore = () => setPage((prev) => prev + 1);
 
   return (
-    <section className="news">
+    <section className="news" id="News">
       <div className="container">
         <h2 className="news__title title">Situation in the world</h2>
         <ul className="news__list">

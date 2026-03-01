@@ -19,15 +19,31 @@ const Header = ({ baseUrl }) => {
     setUsername("");
   };
   useEffect(() => {
-    if (isMobileOpen) {
-      document.body.style.overflow = "hidden";
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        document.body.style.overflow = "auto";
+      } else if (isMobileOpen) {
+        document.body.style.overflow = "hidden";
+      }
+    };
+
+    if (isMobileOpen || isModalOpen) {
+      // Блокуємо прокрутку тільки якщо це мобільне меню (на вузькому екрані)
+      // або якщо це модалка (на будь-якому екрані)
+      if (isModalOpen || (isMobileOpen && window.innerWidth <= 768)) {
+        document.body.style.overflow = "hidden";
+      }
     } else {
       document.body.style.overflow = "auto";
     }
+
+    window.addEventListener("resize", handleResize);
+
     return () => {
+      window.removeEventListener("resize", handleResize);
       document.body.style.overflow = "auto";
     };
-  }, [isMobileOpen]);
+  }, [isMobileOpen, isModalOpen]);
   return (
     <>
       <header>
@@ -40,18 +56,18 @@ const Header = ({ baseUrl }) => {
           <nav className="header__nav">
             <ul className="header-nav__list">
               <li className="header-nav__item">
-                <a href="#" className="header-nav__link">
-                  Who we are
+                <a href="#weather-cards" className="header-nav__link">
+                  Your weather
                 </a>
               </li>
               <li className="header-nav__item">
-                <a href="#" className="header-nav__link">
-                  Contacts
+                <a href="#News" className="header-nav__link">
+                  News
                 </a>
               </li>
               <li className="header-nav__item">
-                <a href="#" className="header-nav__link">
-                  Menu
+                <a href="#Gallery" className="header-nav__link">
+                  Gallery
                 </a>
               </li>
             </ul>
@@ -82,25 +98,23 @@ const Header = ({ baseUrl }) => {
           />
         )}
       </header>
-      {isMobileOpen && (
-        <div className="mobile__backdrop" onClick={() => setIsMobileOpen(false)}></div>
-      )}
+      {isMobileOpen && <div className="mobile__backdrop" onClick={() => setIsMobileOpen(false)}></div>}
       <div className={`header-mobile__box ${isMobileOpen ? "" : "hidden"}`}>
         <nav className="header-mobile__nav">
           <ul className="header-mobile-nav__list">
             <li className="header-nav__item">
-              <a href="#" className="header-nav__link">
-                Who we are
+              <a href="#weather-cards" className="header-nav__link" onClick={() => setIsMobileOpen(false)}>
+                Your weather
               </a>
             </li>
             <li className="header-nav__item">
-              <a href="#" className="header-nav__link">
-                Contacts
+              <a href="#News" className="header-nav__link" onClick={() => setIsMobileOpen(false)}>
+                News
               </a>
             </li>
             <li className="header-nav__item">
-              <a href="#" className="header-nav__link">
-                Menu
+              <a href="#Gallery" className="header-nav__link" onClick={() => setIsMobileOpen(false)}>
+                Gallery
               </a>
             </li>
           </ul>

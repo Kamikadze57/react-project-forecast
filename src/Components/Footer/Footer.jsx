@@ -18,21 +18,21 @@ const Footer = ({ baseUrl }) => {
             <h6 className="footer__title footer-contact__title">Contact Us</h6>
             <ul className="footer-contact__list">
               <li className="footer-contact__item">
-                <a className="footer-contact__link">
+                <a className="footer-contact__link" href="https://www.instagram.com/" target="_blank">
                   <svg className="footer-contact__svg">
                     <use href={`${baseUrl}/icons.svg#inst`}></use>
                   </svg>
                 </a>
               </li>
               <li className="footer-contact__item">
-                <a className="footer-contact__link">
+                <a className="footer-contact__link" href="https://www.facebook.com/?locale=uk_UK" target="_blank">
                   <svg className="footer-contact__svg">
                     <use href={`${baseUrl}/icons.svg#facebook`}></use>
                   </svg>
                 </a>
               </li>
               <li className="footer-contact__item">
-                <a className="footer-contact__link">
+                <a className="footer-contact__link" href="https://www.whatsapp.com/?lang=uk" target="_blank">
                   <svg className="footer-contact__svg">
                     <use href={`${baseUrl}/icons.svg#whatsapp`}></use>
                   </svg>
